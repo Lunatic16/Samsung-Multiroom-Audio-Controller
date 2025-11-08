@@ -14,7 +14,7 @@ APP_DIR="$SCRIPT_DIR/backend"
 JAR_FILE="$APP_DIR/target/multiroom-app-1.0.0.jar"
 LOG_FILE="$APP_DIR/multiroom-app.log"
 PID_FILE="$APP_DIR/multiroom-app.pid"
-PORT=8080
+PORT=8081
 
 # Colors for output
 RED='\033[0;31m'

@@ -88,7 +88,7 @@ mvn spring-boot:run
 
 Once the server is running, open your web browser and navigate to:
 
-http://localhost:8080
+http://localhost:8081
 
 ## Usage
 
@@ -195,7 +195,7 @@ The frontend files are located in the `multiroom-app/web-ui` directory and are s
 
 The application uses the following default configuration:
 
-- Server Port: 8080
+- Server Port: 8081
 - Database: H2 in-memory database (for demo)
 - Network Discovery: Enabled for local network
 - CORS: Enabled for all origins (for development)
@@ -213,7 +213,7 @@ This implementation has some limitations:
 
 ## Troubleshooting
 
-- If the server fails to start, check that port 8080 is not in use by another application
+- If the server fails to start, check that port 8081 is not in use by another application
 - Ensure Java 11+ is installed and properly configured
 - If speakers are not discovered, verify that the application server and speakers are on the same subnet
 - Check the server logs for detailed error information
