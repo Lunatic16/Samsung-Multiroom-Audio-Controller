@@ -134,6 +134,10 @@ The application provides the following REST API endpoints:
 - `POST /api/library/tracks` - Add track to library
 - `PUT /api/library/tracks/{id}` - Update track
 - `DELETE /api/library/tracks/{id}` - Delete track
+- `GET /api/library/config/directory` - Get current music library directory
+- `POST /api/library/config/directory` - Set music library directory
+- `POST /api/library/scan` - Scan directory and add audio files to library
+- `GET /api/library/files` - Get list of audio files in music library directory
 
 ## Project Structure
 

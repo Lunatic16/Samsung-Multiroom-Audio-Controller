@@ -15,6 +15,7 @@ public class Track {
     
     private String album;
     
+    @Column(length = 1000) // Allow longer file paths
     private String filePath; // Path to the audio file
     
     private String uri; // URI for streaming
