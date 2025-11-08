@@ -8,7 +8,9 @@ set -e
 
 # Configuration
 APP_NAME="multiroom-app"
-APP_DIR="/home/god2/Downloads/Wireless Audio-Multiroom 4156/multiroom-app/backend"
+# Use relative path based on script location
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+APP_DIR="$SCRIPT_DIR/backend"
 JAR_FILE="$APP_DIR/target/multiroom-app-1.0.0.jar"
 LOG_FILE="$APP_DIR/multiroom-app.log"
 PID_FILE="$APP_DIR/multiroom-app.pid"

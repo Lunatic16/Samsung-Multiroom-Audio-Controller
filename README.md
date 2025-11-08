@@ -36,6 +36,7 @@ This hybrid application follows a client-server architecture:
 - Browse and play music from your library
 - Multiroom synchronization
 - Responsive web interface accessible from any device with a browser
+- Server control script with relative path support for easy deployment
 
 ## Prerequisites
 
