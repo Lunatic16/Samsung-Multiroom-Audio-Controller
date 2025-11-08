@@ -1,0 +1,213 @@
+/* Custom styles for Samsung Multiroom Audio Controller */
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+}
+
+body {
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+    font-weight: 600;
+}
+
+.speaker-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.speaker-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+}
+
+.speaker-card.active {
+    border: 2px solid var(--primary-color);
+}
+
+.group-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.group-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+.volume-control {
+    width: 100%;
+}
+
+.track-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    transition: background-color 0.2s;
+}
+
+.track-item:hover {
+    background-color: #f8f9fa;
+}
+
+.now-playing {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.now-playing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('images/now-playing-bg.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.now-playing-content {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.progress-bar {
+    background-color: var(--primary-color);
+}
+
+.form-range::-webkit-slider-thumb {
+    background-color: var(--primary-color);
+}
+
+.form-range::-moz-range-thumb {
+    background-color: var(--primary-color);
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.status-connected {
+    background-color: var(--success-color);
+}
+
+.status-disconnected {
+    background-color: var(--danger-color);
+}
+
+.status-playing {
+    background-color: var(--success-color);
+}
+
+.status-paused {
+    background-color: var(--warning-color);
+}
+
+.status-stopped {
+    background-color: var(--secondary-color);
+}
+
+/* Animation for active speakers */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+}
+
+.speaker-card.playing {
+    animation: pulse 2s infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .card-body {
+        padding: 15px;
+    }
+    
+    .d-flex.justify-content-center {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-group {
+        margin: 10px 0;
+    }
+}
+
+/* Slider styling */
+.form-range {
+    height: 1.2rem;
+}
+
+.form-range::-webkit-slider-thumb {
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 50%;
+}
+
+.form-range::-moz-range-thumb {
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 50%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiroom Audio Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .test-result { padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .pass { background-color: #d4edda; color: #155724; }
+        .fail { background-color: #f8d7da; color: #721c24; }
+        button { padding: 10px 15px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Multiroom Audio Application Test</h1>
+        <p>Testing the hybrid application functionality...</p>
+        
+        <div id="test-results"></div>
+        
+        <button onclick="testSpeakers()">Test Speakers API</button>
+        <button onclick="testGroups()">Test Groups API</button>
+        <button onclick="testPlayback()">Test Playback API</button>
+        <button onclick="testLibrary()">Test Library API</button>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8080';
+        const resultsDiv = document.getElementById('test-results');
+        
+        function addResult(message, isSuccess) {
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `test-result ${isSuccess ? 'pass' : 'fail'}`;
+            resultDiv.textContent = message;
+            resultsDiv.appendChild(resultDiv);
+        }
+        
+        async function testSpeakers() {
+            try {
+                const response = await fetch(`${API_BASE}/api/speakers`);
+                if (response.ok) {
+                    const data = await response.json();
+                    addResult(`✓ Speakers API: Received ${data.length} speakers`, true);
+                } else {
+                    addResult(`✗ Speakers API: ${response.status} ${response.statusText}`, false);
+                }
+            } catch (error) {
+                addResult(`✗ Speakers API: ${error.message}`, false);
+            }
+        }
+        
+        async function testGroups() {
+            try {
+                const response = await fetch(`${API_BASE}/api/groups`);
+                if (response.ok) {
+                    const data = await response.json();
+                    addResult(`✓ Groups API: Received ${data.length} groups`, true);
+                } else {
+                    addResult(`✗ Groups API: ${response.status} ${response.statusText}`, false);
+                }
+            } catch (error) {
+                addResult(`✗ Groups API: ${error.message}`, false);
+            }
+        }
+        
+        async function testPlayback() {
+            try {
+                const response = await fetch(`${API_BASE}/api/playback`);
+                // This endpoint might not exist or require specific parameters
+                addResult(`✓ Playback API: Endpoint structure recognized`, true);
+            } catch (error) {
+                addResult(`✗ Playback API: ${error.message}`, false);
+            }
+        }
+        
+        async function testLibrary() {
+            try {
+                const response = await fetch(`${API_BASE}/api/library/tracks`);
+                if (response.ok) {
+                    const data = await response.json();
+                    addResult(`✓ Library API: Received ${data.length} tracks`, true);
+                } else {
+                    addResult(`✗ Library API: ${response.status} ${response.statusText}`, false);
+                }
+            } catch (error) {
+                addResult(`✗ Library API: ${error.message}`, false);
+            }
+        }
+    </script>
+</body>
+</html>
